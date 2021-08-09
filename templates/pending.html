@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<script>
+    var user = "{{request.user}}"
+
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    const csrftoken = getCookie('csrftoken');
+</script>
+    <!-- Pending Requests Start -->
+    <div class="container mt-5">
+        {% for confession in confessions %}
+        <div class="card mb-3">
+            <div class="card-body">
+            <h5 class="card-title">{{ confession.timestamp }}</h5>
+            <p class="card-text">{{ confession.content }}</p>
+            <button type="button" data-item="{{ confession.id }}" data-action="approve" class="update-request btn btn-success">Approve</button>
+            <button type="button" data-item="{{ confession.id }}" data-action="reject" class="update-request btn btn-danger">Reject</button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- Pending Requests End-->
+
+<script>
+var updateBtns = document.getElementsByClassName("update-request")
+
+for(var i = 0; i < updateBtns.length; i++){
+    updateBtns[i].addEventListener('click', function(){
+        var request_id = this.dataset.item
+        var action = this.dataset.action
+        console.log("request_id:", request_id, "action:", action)
+        console.log('USER:', user)
+        if (user === 'AnonymousUser'){
+            console.log("User not logged in")
+        } else {
+            console.log("User logged in...")
+            updateUserOrder(request_id, action)
+        }
+    })
+}
+
+function updateUserOrder(request_id, action){
+    var url = "/approve_request/"
+
+    fetch(url, {
+        method:'POST',
+        headers: {
+            'Content-Type':'application/json',
+            'X-CSRFToken': csrftoken,
+        },
+        body:JSON.stringify({'request_id':request_id, 'action':action})
+    })
+    .then((response) =>{
+        return response.json()
+    })
+    .then((data) =>{
+        console.log('data:', data)
+        location.reload()
+    })
+}
+</script>
+{% endblock content %}

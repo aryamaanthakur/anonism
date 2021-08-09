@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<script>
+    var user = "{{request.user}}"
+</script>
+
+    <!-- Confessions Start -->
+    <div class="container mt-5">
+
+        <!-- <div class="card mb-3">
+            <div class="card-body">
+            <h5 class="card-title">Announcement!</h5>
+            <p class="card-text">Previously the site did not have moderation and some abusive/offensive content was observed. We temporarily disabled the site and modified it. Now each confession needs to be approved by a moderator. We sincerely apologise for any inconvience caused by the previous version of site.</p>
+            </div>
+        </div> -->
+
+        {% for confession in confessions %}
+        <div class="card mb-3">
+            <div class="card-body">
+            <h5 class="card-title">Confession #{{ confession.id }}</h5>
+            <p style="color: rgb(138, 138, 138); font-size: 10px; margin: 0 0;">{{ confession.timestamp | timesince }} ago</p>
+            <p class="card-text mb-0">{{ confession.content }}</p>
+            <!-- <span class="number-of-likes">15</span>
+            <i class="fas fa-arrow-up"></i>
+            <span class="number-of-likes">15</span>
+            <i class="fas fa-arrow-down"></i> -->
+            <button class="report-button" data-item="{{ confession.id }}">Report</button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- Confession End-->
+
+<script>
+        var reportBtns = document.getElementsByClassName("report-button")
+        
+        for(var i = 0; i < reportBtns.length; i++){
+            reportBtns[i].addEventListener('click', function(){
+                var confession_id = this.dataset.item
+                console.log(confession_id)
+                console.log('USER:', user)
+                if (user === 'AnonymousUser'){
+                    console.log("User not logged in")
+                } else {
+                    console.log("User logged in...")
+                    window.location = "/report/"+confession_id
+                }
+            })
+        }
+</script>
+{% endblock content %}

@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&family=Merriweather:wght@300;400&family=Major+Mono+Display&display=swap');
+
+
+.landing-page{
+    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+    position: absolute;
+    height: 100%;
+
+    max-width: 100%;
+}
+
+.landing-page .title-text {
+    margin-top: 8%;
+}
+.landing-page h5{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: 1.5em;
+    font-weight: 300;
+    color: #fff;
+    font-family: 'Montserrat';
+}
+
+.landing-page h1{
+    font-size: 5em;
+    /* font-weight: bold; */
+    color: #fff;
+    letter-spacing: 0.2rem;
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: 'Major Mono Display', monospace;
+}
+
+.landing-page p{
+    font-size: 1em;
+    text-transform: uppercase;
+    font-weight: lighter;
+    color: rgb(214, 214, 214);
+    word-spacing: 5px;
+    letter-spacing: 2px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.landing-note {
+    width: 70%;
+    margin-left: 15%;
+    text-align: justify;
+}
+
+.landing-page .loginwithgoogle span{
+    color: #fff;
+}
+@media screen and (max-width: 767px) {
+    .landing-page h1{
+        font-size: 3em;
+    }
+
+    .landing-note {
+        width: 80%;
+        margin-left: 10%;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    
+    .landing-page h1{
+        font-size: 2em;
+    }
+
+    .landing-note {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .landing-page h5{
+        font-size: 1em;
+        margin-bottom: 10%;
+    }
+
+    .landing-page p{
+        font-size: 0.8em;
+    }
+}
+
+#login-button {
+    background-color: #002658;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 5px 20px;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#login-button:focus {
+    outline-color: none;
+    box-shadow: none;
+}
+
+#login-button:hover {
+    background-color: #002b6b;
+}
+
+.navbar{
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.2rem;
+    background: rgb(0, 0, 50) !important;
+    padding: 15px 0px;
+}
+
+.navbar button:focus {
+    outline: none;
+  }
+  
+  .navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+    padding-left: 20px;
+    font-family: 'Montserrat', sans-serif
+}
+
+.navbar-dark .navbar-nav .nav-link:active,
+.navbar-dark .navbar-nav .nav-link:hover{
+    color: #89bcff;
+}
+
+.card-title{
+    font-family: 'Merriweather';
+    font-weight: 400;
+}
+
+.card-text{
+    font-family: 'Montserrat';
+}
+
+#submit-confession {
+    background-color: #002658;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    padding: 5px 20px;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#submit-confession:focus {
+    outline-color: none;
+    box-shadow: none;
+}
+
+#submit-confession:hover {
+    background-color: #002b6b;
+}
+
+.report-button {
+    background-color: #002658;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 8px;
+    padding: 5px 10px;
+    border-radius: 50px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.report-button:focus {
+    outline-color: none;
+    box-shadow: none;
+}
+
+.report-button:hover {
+    background-color: #002b6b;
+}
+
+.icon-box{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.icon-box h3{
+    margin-top: 5px;
+    font-size: 1.3em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.face-img {
+    border-radius: 50%;
+}
+.social-links li{
+    list-style: none;
+    display: inline-block;
+    padding-right: 10px;
+}
+.social-links i{
+    font-size: 2rem;
+    color: #002658;
+}
+.social-links i:hover{
+    color: #427dca !important;
+}

@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-12 px-4">
+            <h3 style="font-family: Merriweather;">About ANONISM</h3>
+            <p class="mb-4" style="text-align: justify; font-family: Montserrat;">
+                None of us is perfect. We all have some hidden thoughts underlying deep inside of us which we keep holding on but at the same time we are dying to share them with everyone. It may be about mistakes we committed or some person we admire and so on. Holding on to such things only gives it more power. But confessing such emotions anonymously lightens our burden of guilt, fear or nervousness making us feel more confident and also helps us explore our deepest thoughts and feelings.
+            </br>
+            So here comes ANONISM, the anonymous confession website for the students of IIT (ISM), Dhanbad, where ISMites can confess any or every such feelings (ofcourse without hurting any other person's feelings) with 100% anonymity (i.e., not even the admins can track the user).
+            </p>
+
+            {% if user.is_authenticated == False %}
+            <a href="/login" id="login-button" class="mb-5">LOGIN</a>
+            {% endif %}
+        </div>
+        <div class="col-lg-8 col-md-8 col-12 px-4">
+            <h3 style="font-family: Merriweather;" >Moderators</h3>
+            <hr class="">
+            
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6 mt-4 mb-4 mt-md-0">
+                    <div class="icon-box">
+                        <img class="face-img" src="{% static 'images/aryamaan.jpg' %}"" width="90%">
+                        <h3>Aryamaan Thakur</h3>
+                        <ul class="social-links list-unstyled">
+                            <li><a href="https://instagram.com/_aryamaan_" target="blank"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="https://github.com/aryamaanthakur" target="blank"><i class="fab fa-github"></i></a></li>
+                            <li><a href="https://linkedin.com/in/aryamaanthakur" target="blank"><i class="fab fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-6 mt-4 mb-4 mt-md-0">
+                    <div class="icon-box">
+                        <img class="face-img" src="{% static 'images/garvit.jpg' %}"" width="90%">
+                        <h3>Garvit Dua</h3>
+                        <ul class="social-links list-unstyled">
+                            <li><a href="https://www.instagram.com/garvitd11/" target="blank"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="http://github.com/GarvitD" target="blank"><i class="fab fa-github"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/garvit-dua/" target="blank"><i class="fab fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-6 mt-4 mb-4 mt-md-0">
+                    <div class="icon-box">
+                        <img class="face-img" src="{% static 'images/milan.jpg' %}"" width="90%">
+                        <h3>Milan Mundhra</h3>
+                        <ul class="social-links list-unstyled">
+                            <li><a href="https://www.instagram.com/milan_miles_1/" target="blank"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="https://github.com/milan0027" target="blank"><i class="fab fa-github"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/milanmundhra27/" target="blank"><i class="fab fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-4 col-sm-6 mt-4 mb-4 mt-md-0">
+                    <div class="icon-box">
+                        <img class="face-img" src="{% static 'images/shubhranshu.jpg' %}"" width="90%">
+                        <h3>Shubhranshu</h3>
+                        <ul class="social-links list-unstyled">
+                            <li><a href="https://www.instagram.com/s_a_jha/" target="blank"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="https://github.com/shubhranshu-animesh" target="blank"><i class="fab fa-github"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/shubhranshu-animesh" target="blank"><i class="fab fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 mt-4 mb-4 mt-md-0">
+                    <div class="icon-box">
+                        <img class="face-img" src="{% static 'images/suyash.jpg' %}"" width="90%">
+                        <h3>Suyash Suryavanshi</h3>
+                        <ul class="social-links list-unstyled">
+                            <li><a href="http://instagram.com/iitiansuyash" target="blank"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="http://github.com/iitiansuyash" target="blank"><i class="fab fa-github"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/suyash-suryavanshi-1b020a203" target="blank"><i class="fab fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-4 col-sm-6 mt-4 mb-4 mt-md-0">
+                    <div class="icon-box">
+                        <img class="face-img" src="{% static 'images/utkarsh.jpg' %}"" width="90%">
+                        <h3>Utkarsh Prasad</h3>
+                        <ul class="social-links list-unstyled">
+                            <li><a href="#" target="blank"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="#" target="blank"><i class="fab fa-github"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/utkarshprasad1005/" target="blank"><i class="fab fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+               
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock content %}

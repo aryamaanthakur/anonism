@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<script>
+    var user = "{{request.user}}"
+
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    const csrftoken = getCookie('csrftoken');
+</script>
+
+
+<div class="container mt-5">
+    {% for report in reports %}
+    <div class="card mb-3">
+        <div class="card-body">
+        <h5 class="card-title">Confession #{{report.confession.id }}</h5>
+        <p class="card-text">{{ report.confession.content }}</p>
+        <p class="card-text">Reported By: {{ report.user }} ({{ report.user.email }})</p>
+        <p class="card-text">Reason: {{ report.reason }}</p>
+        <button type="button" data-item="{{ report.id }}" data-action="approve" class="update-request btn btn-success">Approve</button>
+        <button type="button" data-item="{{ report.id }}" data-action="ignore" class="update-request btn btn-danger">Ignore</button>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+<script>
+    var updateBtns = document.getElementsByClassName("update-request")
+    
+    for(var i = 0; i < updateBtns.length; i++){
+        updateBtns[i].addEventListener('click', function(){
+            var report_id = this.dataset.item
+            var action = this.dataset.action
+            console.log("report_id:", report_id, "action:", action)
+            console.log('USER:', user)
+            if (user === 'AnonymousUser'){
+                console.log("User not logged in")
+            } else {
+                console.log("User logged in...")
+                updateUserOrder(report_id, action)
+            }
+        })
+    }
+    
+    function updateUserOrder(report_id, action){
+        var url = "/approve_report/"
+    
+        fetch(url, {
+            method:'POST',
+            headers: {
+                'Content-Type':'application/json',
+                'X-CSRFToken': csrftoken,
+            },
+            body:JSON.stringify({'report_id':report_id, 'action':action})
+        })
+        .then((response) =>{
+            return response.json()
+        })
+        .then((data) =>{
+            console.log('data:', data)
+            location.reload()
+        })
+    }
+</script>
+
+{% endblock content %}

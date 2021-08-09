@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container text-center mt-5">
+    <h3 style="font-weight: 300;">Reason for report</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.reason }}
+    </br>
+        <input type="submit" id="submit-confession" value="REPORT" class="mt-2 mb-4">
+    </form>
+    <div style="color: grey; font-size: 0.8em;">
+        NOTE: Once you post a confession, it will remain pending till a moderator approves. Only your message will be displayed to the moderator (your identity will remain hidden).
+    </div>
+</div>
+
+{% endblock content %}
